@@ -1,4 +1,6 @@
-package org.ruiscoder.vhr.model;
+package org.ruiscoder.myvhr.model;
+
+import java.util.List;
 
 public class Menu {
     private Integer id;
@@ -11,15 +13,31 @@ public class Menu {
 
     private String name;
 
-    private String iconcls;
+    private String iconCls;
 
-    private Boolean keepalive;
+    private Meta meta;
 
-    private Boolean requireauth;
-
-    private Integer parentid;
+    private Integer parentId;
 
     private Boolean enabled;
+
+    private List<Meta> children;
+
+    public Meta getMeta() {
+        return meta;
+    }
+
+    public void setMeta(Meta meta) {
+        this.meta = meta;
+    }
+
+    public List<Meta> getChildren() {
+        return children;
+    }
+
+    public void setChildren(List<Meta> children) {
+        this.children = children;
+    }
 
     public Integer getId() {
         return id;
@@ -61,43 +79,28 @@ public class Menu {
         this.name = name == null ? null : name.trim();
     }
 
-    public String getIconcls() {
-        return iconcls;
-    }
-
-    public void setIconcls(String iconcls) {
-        this.iconcls = iconcls == null ? null : iconcls.trim();
-    }
-
-    public Boolean getKeepalive() {
-        return keepalive;
-    }
-
-    public void setKeepalive(Boolean keepalive) {
-        this.keepalive = keepalive;
-    }
-
-    public Boolean getRequireauth() {
-        return requireauth;
-    }
-
-    public void setRequireauth(Boolean requireauth) {
-        this.requireauth = requireauth;
-    }
-
-    public Integer getParentid() {
-        return parentid;
-    }
-
-    public void setParentid(Integer parentid) {
-        this.parentid = parentid;
-    }
-
     public Boolean getEnabled() {
         return enabled;
     }
 
     public void setEnabled(Boolean enabled) {
         this.enabled = enabled;
+    }
+
+    public String getIconCls() {
+        return iconCls;
+    }
+
+    public void setIconCls(String iconCls) {
+        this.iconCls = iconCls;
+    }
+
+
+    public Integer getParentId() {
+        return parentId;
+    }
+
+    public void setParentId(Integer parentId) {
+        this.parentId = parentId;
     }
 }

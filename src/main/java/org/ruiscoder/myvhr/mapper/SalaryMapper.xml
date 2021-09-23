@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="org.ruiscoder.vhr.mapper.SalaryMapper" >
-  <resultMap id="BaseResultMap" type="org.ruiscoder.vhr.model.Salary" >
+<mapper namespace="org.ruiscoder.myvhr.mapper.SalaryMapper" >
+  <resultMap id="BaseResultMap" type="org.ruiscoder.myvhr.model.Salary" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="basicSalary" property="basicsalary" jdbcType="INTEGER" />
     <result column="bonus" property="bonus" jdbcType="INTEGER" />
@@ -18,11 +18,11 @@
     <result column="name" property="name" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, basicSalary, bonus, lunchSalary, trafficSalary, allSalary, pensionBase, pensionPer, 
+    id, basicSalary, bonus, lunchSalary, trafficSalary, allSalary, pensionBase, pensionPer,
     createDate, medicalBase, medicalPer, accumulationFundBase, accumulationFundPer, name
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
+    select
     <include refid="Base_Column_List" />
     from salary
     where id = #{id,jdbcType=INTEGER}
@@ -31,19 +31,19 @@
     delete from salary
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="org.ruiscoder.vhr.model.Salary" >
-    insert into salary (id, basicSalary, bonus, 
-      lunchSalary, trafficSalary, allSalary, 
-      pensionBase, pensionPer, createDate, 
-      medicalBase, medicalPer, accumulationFundBase, 
+  <insert id="insert" parameterType="org.ruiscoder.myvhr.model.Salary" >
+    insert into salary (id, basicSalary, bonus,
+      lunchSalary, trafficSalary, allSalary,
+      pensionBase, pensionPer, createDate,
+      medicalBase, medicalPer, accumulationFundBase,
       accumulationFundPer, name)
-    values (#{id,jdbcType=INTEGER}, #{basicsalary,jdbcType=INTEGER}, #{bonus,jdbcType=INTEGER}, 
-      #{lunchsalary,jdbcType=INTEGER}, #{trafficsalary,jdbcType=INTEGER}, #{allsalary,jdbcType=INTEGER}, 
-      #{pensionbase,jdbcType=INTEGER}, #{pensionper,jdbcType=REAL}, #{createdate,jdbcType=TIMESTAMP}, 
-      #{medicalbase,jdbcType=INTEGER}, #{medicalper,jdbcType=REAL}, #{accumulationfundbase,jdbcType=INTEGER}, 
+    values (#{id,jdbcType=INTEGER}, #{basicsalary,jdbcType=INTEGER}, #{bonus,jdbcType=INTEGER},
+      #{lunchsalary,jdbcType=INTEGER}, #{trafficsalary,jdbcType=INTEGER}, #{allsalary,jdbcType=INTEGER},
+      #{pensionbase,jdbcType=INTEGER}, #{pensionper,jdbcType=REAL}, #{createdate,jdbcType=TIMESTAMP},
+      #{medicalbase,jdbcType=INTEGER}, #{medicalper,jdbcType=REAL}, #{accumulationfundbase,jdbcType=INTEGER},
       #{accumulationfundper,jdbcType=REAL}, #{name,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="org.ruiscoder.vhr.model.Salary" >
+  <insert id="insertSelective" parameterType="org.ruiscoder.myvhr.model.Salary" >
     insert into salary
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -134,7 +134,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="org.ruiscoder.vhr.model.Salary" >
+  <update id="updateByPrimaryKeySelective" parameterType="org.ruiscoder.myvhr.model.Salary" >
     update salary
     <set >
       <if test="basicsalary != null" >
@@ -179,7 +179,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="org.ruiscoder.vhr.model.Salary" >
+  <update id="updateByPrimaryKey" parameterType="org.ruiscoder.myvhr.model.Salary" >
     update salary
     set basicSalary = #{basicsalary,jdbcType=INTEGER},
       bonus = #{bonus,jdbcType=INTEGER},

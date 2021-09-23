@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="org.ruiscoder.vhr.mapper.AdjustSalaryMapper" >
-  <resultMap id="BaseResultMap" type="org.ruiscoder.vhr.model.AdjustSalary" >
+<mapper namespace="org.ruiscoder.myvhr.mapper.AdjustSalaryMapper" >
+  <resultMap id="BaseResultMap" type="org.ruiscoder.myvhr.model.AdjustSalary" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="eid" property="eid" jdbcType="INTEGER" />
     <result column="asDate" property="asdate" jdbcType="DATE" />
@@ -14,7 +14,7 @@
     id, eid, asDate, beforeSalary, afterSalary, reason, remark
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
+    select
     <include refid="Base_Column_List" />
     from adjustsalary
     where id = #{id,jdbcType=INTEGER}
@@ -23,15 +23,15 @@
     delete from adjustsalary
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="org.ruiscoder.vhr.model.AdjustSalary" >
-    insert into adjustsalary (id, eid, asDate, 
-      beforeSalary, afterSalary, reason, 
+  <insert id="insert" parameterType="org.ruiscoder.myvhr.model.AdjustSalary" >
+    insert into adjustsalary (id, eid, asDate,
+      beforeSalary, afterSalary, reason,
       remark)
-    values (#{id,jdbcType=INTEGER}, #{eid,jdbcType=INTEGER}, #{asdate,jdbcType=DATE}, 
-      #{beforesalary,jdbcType=INTEGER}, #{aftersalary,jdbcType=INTEGER}, #{reason,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=INTEGER}, #{eid,jdbcType=INTEGER}, #{asdate,jdbcType=DATE},
+      #{beforesalary,jdbcType=INTEGER}, #{aftersalary,jdbcType=INTEGER}, #{reason,jdbcType=VARCHAR},
       #{remark,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="org.ruiscoder.vhr.model.AdjustSalary" >
+  <insert id="insertSelective" parameterType="org.ruiscoder.myvhr.model.AdjustSalary" >
     insert into adjustsalary
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -80,7 +80,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="org.ruiscoder.vhr.model.AdjustSalary" >
+  <update id="updateByPrimaryKeySelective" parameterType="org.ruiscoder.myvhr.model.AdjustSalary" >
     update adjustsalary
     <set >
       <if test="eid != null" >
@@ -104,7 +104,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="org.ruiscoder.vhr.model.AdjustSalary" >
+  <update id="updateByPrimaryKey" parameterType="org.ruiscoder.myvhr.model.AdjustSalary" >
     update adjustsalary
     set eid = #{eid,jdbcType=INTEGER},
       asDate = #{asdate,jdbcType=DATE},

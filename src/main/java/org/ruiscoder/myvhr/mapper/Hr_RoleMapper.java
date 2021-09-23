@@ -1,6 +1,6 @@
-package org.ruiscoder.vhr.mapper;
+package org.ruiscoder.myvhr.mapper;
 
-import org.ruiscoder.vhr.model.Hr_Role;
+import org.ruiscoder.myvhr.model.Hr_Role;
 
 public interface Hr_RoleMapper {
     int deleteByPrimaryKey(Integer id);

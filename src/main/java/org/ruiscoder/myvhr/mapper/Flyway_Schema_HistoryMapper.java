@@ -1,6 +1,6 @@
-package org.ruiscoder.vhr.mapper;
+package org.ruiscoder.myvhr.mapper;
 
-import org.ruiscoder.vhr.model.Flyway_Schema_History;
+import org.ruiscoder.myvhr.model.Flyway_Schema_History;
 
 public interface Flyway_Schema_HistoryMapper {
     int deleteByPrimaryKey(Integer installedRank);

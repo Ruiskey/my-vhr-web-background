@@ -1,6 +1,6 @@
-package org.ruiscoder.vhr.mapper;
+package org.ruiscoder.myvhr.mapper;
 
-import org.ruiscoder.vhr.model.Menu_Role;
+import org.ruiscoder.myvhr.model.Menu_Role;
 
 public interface Menu_RoleMapper {
     int deleteByPrimaryKey(Integer id);

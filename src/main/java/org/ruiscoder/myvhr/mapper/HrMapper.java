@@ -1,6 +1,6 @@
-package org.ruiscoder.vhr.mapper;
+package org.ruiscoder.myvhr.mapper;
 
-import org.ruiscoder.vhr.model.Hr;
+import org.ruiscoder.myvhr.model.Hr;
 
 public interface HrMapper {
     int deleteByPrimaryKey(Integer id);
@@ -14,4 +14,6 @@ public interface HrMapper {
     int updateByPrimaryKeySelective(Hr record);
 
     int updateByPrimaryKey(Hr record);
+
+    Hr loadUserByUsername(String username);
 }

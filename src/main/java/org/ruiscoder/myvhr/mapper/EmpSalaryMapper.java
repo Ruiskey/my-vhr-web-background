@@ -1,6 +1,6 @@
-package org.ruiscoder.vhr.mapper;
+package org.ruiscoder.myvhr.mapper;
 
-import org.ruiscoder.vhr.model.EmpSalary;
+import org.ruiscoder.myvhr.model.EmpSalary;
 
 public interface EmpSalaryMapper {
     int deleteByPrimaryKey(Integer id);

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="org.ruiscoder.vhr.mapper.Mail_Send_LogMapper" >
-  <resultMap id="BaseResultMap" type="org.ruiscoder.vhr.model.Mail_Send_Log" >
+<mapper namespace="org.ruiscoder.myvhr.mapper.Mail_Send_LogMapper" >
+  <resultMap id="BaseResultMap" type="org.ruiscoder.myvhr.model.Mail_Send_Log" >
     <result column="msgId" property="msgid" jdbcType="VARCHAR" />
     <result column="empId" property="empid" jdbcType="INTEGER" />
     <result column="status" property="status" jdbcType="INTEGER" />
@@ -12,17 +12,17 @@
     <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
     <result column="updateTime" property="updatetime" jdbcType="TIMESTAMP" />
   </resultMap>
-  <insert id="insert" parameterType="org.ruiscoder.vhr.model.Mail_Send_Log" >
-    insert into mail_send_log (msgId, empId, status, 
-      routeKey, exchange, count, 
+  <insert id="insert" parameterType="org.ruiscoder.myvhr.model.Mail_Send_Log" >
+    insert into mail_send_log (msgId, empId, status,
+      routeKey, exchange, count,
       tryTime, createTime, updateTime
       )
-    values (#{msgid,jdbcType=VARCHAR}, #{empid,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, 
-      #{routekey,jdbcType=VARCHAR}, #{exchange,jdbcType=VARCHAR}, #{count,jdbcType=INTEGER}, 
+    values (#{msgid,jdbcType=VARCHAR}, #{empid,jdbcType=INTEGER}, #{status,jdbcType=INTEGER},
+      #{routekey,jdbcType=VARCHAR}, #{exchange,jdbcType=VARCHAR}, #{count,jdbcType=INTEGER},
       #{trytime,jdbcType=TIMESTAMP}, #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="org.ruiscoder.vhr.model.Mail_Send_Log" >
+  <insert id="insertSelective" parameterType="org.ruiscoder.myvhr.model.Mail_Send_Log" >
     insert into mail_send_log
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="msgid != null" >

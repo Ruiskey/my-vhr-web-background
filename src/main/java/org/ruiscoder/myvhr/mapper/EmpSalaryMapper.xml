@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="org.ruiscoder.vhr.mapper.EmpSalaryMapper" >
-  <resultMap id="BaseResultMap" type="org.ruiscoder.vhr.model.EmpSalary" >
+<mapper namespace="org.ruiscoder.myvhr.mapper.EmpSalaryMapper" >
+  <resultMap id="BaseResultMap" type="org.ruiscoder.myvhr.model.EmpSalary" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="eid" property="eid" jdbcType="INTEGER" />
     <result column="sid" property="sid" jdbcType="INTEGER" />
@@ -10,7 +10,7 @@
     id, eid, sid
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
+    select
     <include refid="Base_Column_List" />
     from empsalary
     where id = #{id,jdbcType=INTEGER}
@@ -19,11 +19,11 @@
     delete from empsalary
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="org.ruiscoder.vhr.model.EmpSalary" >
+  <insert id="insert" parameterType="org.ruiscoder.myvhr.model.EmpSalary" >
     insert into empsalary (id, eid, sid)
     values (#{id,jdbcType=INTEGER}, #{eid,jdbcType=INTEGER}, #{sid,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="org.ruiscoder.vhr.model.EmpSalary" >
+  <insert id="insertSelective" parameterType="org.ruiscoder.myvhr.model.EmpSalary" >
     insert into empsalary
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -48,7 +48,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="org.ruiscoder.vhr.model.EmpSalary" >
+  <update id="updateByPrimaryKeySelective" parameterType="org.ruiscoder.myvhr.model.EmpSalary" >
     update empsalary
     <set >
       <if test="eid != null" >
@@ -60,7 +60,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="org.ruiscoder.vhr.model.EmpSalary" >
+  <update id="updateByPrimaryKey" parameterType="org.ruiscoder.myvhr.model.EmpSalary" >
     update empsalary
     set eid = #{eid,jdbcType=INTEGER},
       sid = #{sid,jdbcType=INTEGER}

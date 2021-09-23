@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="org.ruiscoder.vhr.mapper.EmployeeecMapper" >
-  <resultMap id="BaseResultMap" type="org.ruiscoder.vhr.model.Employeeec" >
+<mapper namespace="org.ruiscoder.myvhr.mapper.EmployeeecMapper" >
+  <resultMap id="BaseResultMap" type="org.ruiscoder.myvhr.model.Employeeec" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="eid" property="eid" jdbcType="INTEGER" />
     <result column="ecDate" property="ecdate" jdbcType="DATE" />
@@ -14,7 +14,7 @@
     id, eid, ecDate, ecReason, ecPoint, ecType, remark
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
+    select
     <include refid="Base_Column_List" />
     from employeeec
     where id = #{id,jdbcType=INTEGER}
@@ -23,15 +23,15 @@
     delete from employeeec
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="org.ruiscoder.vhr.model.Employeeec" >
-    insert into employeeec (id, eid, ecDate, 
-      ecReason, ecPoint, ecType, 
+  <insert id="insert" parameterType="org.ruiscoder.myvhr.model.Employeeec" >
+    insert into employeeec (id, eid, ecDate,
+      ecReason, ecPoint, ecType,
       remark)
-    values (#{id,jdbcType=INTEGER}, #{eid,jdbcType=INTEGER}, #{ecdate,jdbcType=DATE}, 
-      #{ecreason,jdbcType=VARCHAR}, #{ecpoint,jdbcType=INTEGER}, #{ectype,jdbcType=INTEGER}, 
+    values (#{id,jdbcType=INTEGER}, #{eid,jdbcType=INTEGER}, #{ecdate,jdbcType=DATE},
+      #{ecreason,jdbcType=VARCHAR}, #{ecpoint,jdbcType=INTEGER}, #{ectype,jdbcType=INTEGER},
       #{remark,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="org.ruiscoder.vhr.model.Employeeec" >
+  <insert id="insertSelective" parameterType="org.ruiscoder.myvhr.model.Employeeec" >
     insert into employeeec
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -80,7 +80,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="org.ruiscoder.vhr.model.Employeeec" >
+  <update id="updateByPrimaryKeySelective" parameterType="org.ruiscoder.myvhr.model.Employeeec" >
     update employeeec
     <set >
       <if test="eid != null" >
@@ -104,7 +104,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="org.ruiscoder.vhr.model.Employeeec" >
+  <update id="updateByPrimaryKey" parameterType="org.ruiscoder.myvhr.model.Employeeec" >
     update employeeec
     set eid = #{eid,jdbcType=INTEGER},
       ecDate = #{ecdate,jdbcType=DATE},

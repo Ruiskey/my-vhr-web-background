@@ -1,6 +1,6 @@
-package org.ruiscoder.vhr.mapper;
+package org.ruiscoder.myvhr.mapper;
 
-import org.ruiscoder.vhr.model.JobLevel;
+import org.ruiscoder.myvhr.model.JobLevel;
 
 public interface JobLevelMapper {
     int deleteByPrimaryKey(Integer id);

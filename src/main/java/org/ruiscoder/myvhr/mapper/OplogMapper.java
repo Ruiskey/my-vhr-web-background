@@ -1,6 +1,6 @@
-package org.ruiscoder.vhr.mapper;
+package org.ruiscoder.myvhr.mapper;
 
-import org.ruiscoder.vhr.model.Oplog;
+import org.ruiscoder.myvhr.model.Oplog;
 
 public interface OplogMapper {
     int deleteByPrimaryKey(Integer id);

@@ -1,6 +1,6 @@
-package org.ruiscoder.vhr.mapper;
+package org.ruiscoder.myvhr.mapper;
 
-import org.ruiscoder.vhr.model.Nation;
+import org.ruiscoder.myvhr.model.Nation;
 
 public interface NationMapper {
     int deleteByPrimaryKey(Integer id);

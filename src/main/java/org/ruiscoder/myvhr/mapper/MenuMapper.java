@@ -1,6 +1,8 @@
-package org.ruiscoder.vhr.mapper;
+package org.ruiscoder.myvhr.mapper;
 
-import org.ruiscoder.vhr.model.Menu;
+import org.ruiscoder.myvhr.model.Menu;
+
+import java.util.List;
 
 public interface MenuMapper {
     int deleteByPrimaryKey(Integer id);
@@ -14,4 +16,6 @@ public interface MenuMapper {
     int updateByPrimaryKeySelective(Menu record);
 
     int updateByPrimaryKey(Menu record);
+
+    List<Menu> getMenusByHrId(Integer hrid);
 }

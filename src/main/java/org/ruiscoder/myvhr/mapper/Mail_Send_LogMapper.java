@@ -1,6 +1,6 @@
-package org.ruiscoder.vhr.mapper;
+package org.ruiscoder.myvhr.mapper;
 
-import org.ruiscoder.vhr.model.Mail_Send_Log;
+import org.ruiscoder.myvhr.model.Mail_Send_Log;
 
 public interface Mail_Send_LogMapper {
     int insert(Mail_Send_Log record);

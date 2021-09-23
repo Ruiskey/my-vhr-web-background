@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="org.ruiscoder.vhr.mapper.DepartmentMapper" >
-  <resultMap id="BaseResultMap" type="org.ruiscoder.vhr.model.Department" >
+<mapper namespace="org.ruiscoder.myvhr.mapper.DepartmentMapper" >
+  <resultMap id="BaseResultMap" type="org.ruiscoder.myvhr.model.Department" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="parentId" property="parentid" jdbcType="INTEGER" />
@@ -13,7 +13,7 @@
     id, name, parentId, depPath, enabled, isParent
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
+    select
     <include refid="Base_Column_List" />
     from department
     where id = #{id,jdbcType=INTEGER}
@@ -22,13 +22,13 @@
     delete from department
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="org.ruiscoder.vhr.model.Department" >
-    insert into department (id, name, parentId, 
+  <insert id="insert" parameterType="org.ruiscoder.myvhr.model.Department" >
+    insert into department (id, name, parentId,
       depPath, enabled, isParent)
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{parentid,jdbcType=INTEGER}, 
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{parentid,jdbcType=INTEGER},
       #{deppath,jdbcType=VARCHAR}, #{enabled,jdbcType=BIT}, #{isparent,jdbcType=BIT})
   </insert>
-  <insert id="insertSelective" parameterType="org.ruiscoder.vhr.model.Department" >
+  <insert id="insertSelective" parameterType="org.ruiscoder.myvhr.model.Department" >
     insert into department
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -71,7 +71,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="org.ruiscoder.vhr.model.Department" >
+  <update id="updateByPrimaryKeySelective" parameterType="org.ruiscoder.myvhr.model.Department" >
     update department
     <set >
       <if test="name != null" >
@@ -92,7 +92,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="org.ruiscoder.vhr.model.Department" >
+  <update id="updateByPrimaryKey" parameterType="org.ruiscoder.myvhr.model.Department" >
     update department
     set name = #{name,jdbcType=VARCHAR},
       parentId = #{parentid,jdbcType=INTEGER},

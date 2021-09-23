@@ -1,6 +1,6 @@
-package org.ruiscoder.vhr.mapper;
+package org.ruiscoder.myvhr.mapper;
 
-import org.ruiscoder.vhr.model.Position;
+import org.ruiscoder.myvhr.model.Position;
 
 public interface PositionMapper {
     int deleteByPrimaryKey(Integer id);

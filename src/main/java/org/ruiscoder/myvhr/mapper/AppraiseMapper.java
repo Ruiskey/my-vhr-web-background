@@ -1,6 +1,6 @@
-package org.ruiscoder.vhr.mapper;
+package org.ruiscoder.myvhr.mapper;
 
-import org.ruiscoder.vhr.model.Appraise;
+import org.ruiscoder.myvhr.model.Appraise;
 
 public interface AppraiseMapper {
     int deleteByPrimaryKey(Integer id);

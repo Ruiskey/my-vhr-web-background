@@ -1,6 +1,6 @@
-package org.ruiscoder.vhr.mapper;
+package org.ruiscoder.myvhr.mapper;
 
-import org.ruiscoder.vhr.model.MsgContent;
+import org.ruiscoder.myvhr.model.MsgContent;
 
 public interface MsgContentMapper {
     int deleteByPrimaryKey(Integer id);

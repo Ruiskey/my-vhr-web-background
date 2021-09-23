@@ -1,6 +1,6 @@
-package org.ruiscoder.vhr.mapper;
+package org.ruiscoder.myvhr.mapper;
 
-import org.ruiscoder.vhr.model.PoliticsStatus;
+import org.ruiscoder.myvhr.model.PoliticsStatus;
 
 public interface PoliticsStatusMapper {
     int deleteByPrimaryKey(Integer id);

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="org.ruiscoder.vhr.mapper.NationMapper" >
-  <resultMap id="BaseResultMap" type="org.ruiscoder.vhr.model.Nation" >
+<mapper namespace="org.ruiscoder.myvhr.mapper.NationMapper" >
+  <resultMap id="BaseResultMap" type="org.ruiscoder.myvhr.model.Nation" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
   </resultMap>
@@ -9,7 +9,7 @@
     id, name
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
+    select
     <include refid="Base_Column_List" />
     from nation
     where id = #{id,jdbcType=INTEGER}
@@ -18,11 +18,11 @@
     delete from nation
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="org.ruiscoder.vhr.model.Nation" >
+  <insert id="insert" parameterType="org.ruiscoder.myvhr.model.Nation" >
     insert into nation (id, name)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="org.ruiscoder.vhr.model.Nation" >
+  <insert id="insertSelective" parameterType="org.ruiscoder.myvhr.model.Nation" >
     insert into nation
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -41,7 +41,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="org.ruiscoder.vhr.model.Nation" >
+  <update id="updateByPrimaryKeySelective" parameterType="org.ruiscoder.myvhr.model.Nation" >
     update nation
     <set >
       <if test="name != null" >
@@ -50,7 +50,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="org.ruiscoder.vhr.model.Nation" >
+  <update id="updateByPrimaryKey" parameterType="org.ruiscoder.myvhr.model.Nation" >
     update nation
     set name = #{name,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}

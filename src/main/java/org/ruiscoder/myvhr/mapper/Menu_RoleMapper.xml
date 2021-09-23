@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="org.ruiscoder.vhr.mapper.Menu_RoleMapper" >
-  <resultMap id="BaseResultMap" type="org.ruiscoder.vhr.model.Menu_Role" >
+<mapper namespace="org.ruiscoder.myvhr.mapper.Menu_RoleMapper" >
+  <resultMap id="BaseResultMap" type="org.ruiscoder.myvhr.model.Menu_Role" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="mid" property="mid" jdbcType="INTEGER" />
     <result column="rid" property="rid" jdbcType="INTEGER" />
@@ -10,7 +10,7 @@
     id, mid, rid
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
+    select
     <include refid="Base_Column_List" />
     from menu_role
     where id = #{id,jdbcType=INTEGER}
@@ -19,11 +19,11 @@
     delete from menu_role
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="org.ruiscoder.vhr.model.Menu_Role" >
+  <insert id="insert" parameterType="org.ruiscoder.myvhr.model.Menu_Role" >
     insert into menu_role (id, mid, rid)
     values (#{id,jdbcType=INTEGER}, #{mid,jdbcType=INTEGER}, #{rid,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="org.ruiscoder.vhr.model.Menu_Role" >
+  <insert id="insertSelective" parameterType="org.ruiscoder.myvhr.model.Menu_Role" >
     insert into menu_role
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -48,7 +48,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="org.ruiscoder.vhr.model.Menu_Role" >
+  <update id="updateByPrimaryKeySelective" parameterType="org.ruiscoder.myvhr.model.Menu_Role" >
     update menu_role
     <set >
       <if test="mid != null" >
@@ -60,7 +60,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="org.ruiscoder.vhr.model.Menu_Role" >
+  <update id="updateByPrimaryKey" parameterType="org.ruiscoder.myvhr.model.Menu_Role" >
     update menu_role
     set mid = #{mid,jdbcType=INTEGER},
       rid = #{rid,jdbcType=INTEGER}

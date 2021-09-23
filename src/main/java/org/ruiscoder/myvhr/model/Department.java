@@ -1,4 +1,4 @@
-package org.ruiscoder.vhr.model;
+package org.ruiscoder.myvhr.model;
 
 public class Department {
     private Integer id;

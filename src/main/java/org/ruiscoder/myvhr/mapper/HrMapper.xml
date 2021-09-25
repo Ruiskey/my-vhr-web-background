@@ -138,6 +138,17 @@
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
+    <select id="getHrRolesById" resultType="org.ruiscoder.myvhr.model.Role">
+        select
+            r.*
+        from
+            role r,
+            hr_role hrr
+        where
+            hrr.rid = r.id
+          and
+            hrr.hrid = #{id}
+    </select>
     <select id="loadUserByUsername" resultMap="BaseResultMap">
         select *
         from hr

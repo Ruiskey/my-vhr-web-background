@@ -1,5 +1,6 @@
 package org.ruiscoder.myvhr.mapper;
 
+import org.apache.ibatis.annotations.Param;
 import org.ruiscoder.myvhr.model.Position;
 
 import java.util.List;
@@ -19,4 +20,5 @@ public interface PositionMapper {
 
     List<Position> getAllPositions();
 
+    Integer deletePositionByIds(@Param("ids") Integer[] ids);
 }

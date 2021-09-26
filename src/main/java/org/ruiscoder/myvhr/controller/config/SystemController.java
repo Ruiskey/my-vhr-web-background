@@ -1,4 +1,4 @@
-package org.ruiscoder.myvhr.controller;
+package org.ruiscoder.myvhr.controller.config;
 
 import org.ruiscoder.myvhr.model.Menu;
 import org.ruiscoder.myvhr.service.MenuService;

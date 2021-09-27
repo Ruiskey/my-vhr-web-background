@@ -4,13 +4,16 @@
   <resultMap id="BaseResultMap" type="org.ruiscoder.myvhr.model.JobLevel" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="titleLevel" property="titlelevel" jdbcType="CHAR" />
-    <result column="createDate" property="createdate" jdbcType="TIMESTAMP" />
+    <result column="titleLevel" property="titleLevel" jdbcType="CHAR" />
+    <result column="createDate" property="createDate" jdbcType="TIMESTAMP" />
     <result column="enabled" property="enabled" jdbcType="BIT" />
   </resultMap>
   <sql id="Base_Column_List" >
     id, name, titleLevel, createDate, enabled
   </sql>
+  <select id="getAllJobLevels" resultMap="BaseResultMap">
+    select * from joblevel;
+  </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select
     <include refid="Base_Column_List" />
@@ -24,8 +27,8 @@
   <insert id="insert" parameterType="org.ruiscoder.myvhr.model.JobLevel" >
     insert into joblevel (id, name, titleLevel,
       createDate, enabled)
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{titlelevel,jdbcType=CHAR},
-      #{createdate,jdbcType=TIMESTAMP}, #{enabled,jdbcType=BIT})
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{titleLevel,jdbcType=CHAR},
+      #{createDate,jdbcType=TIMESTAMP}, #{enabled,jdbcType=BIT})
   </insert>
   <insert id="insertSelective" parameterType="org.ruiscoder.myvhr.model.JobLevel" >
     insert into joblevel
@@ -36,10 +39,10 @@
       <if test="name != null" >
         name,
       </if>
-      <if test="titlelevel != null" >
+      <if test="titleLevel != null" >
         titleLevel,
       </if>
-      <if test="createdate != null" >
+      <if test="createDate != null" >
         createDate,
       </if>
       <if test="enabled != null" >
@@ -53,11 +56,11 @@
       <if test="name != null" >
         #{name,jdbcType=VARCHAR},
       </if>
-      <if test="titlelevel != null" >
-        #{titlelevel,jdbcType=CHAR},
+      <if test="titleLevel != null" >
+        #{titleLevel,jdbcType=CHAR},
       </if>
-      <if test="createdate != null" >
-        #{createdate,jdbcType=TIMESTAMP},
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
       </if>
       <if test="enabled != null" >
         #{enabled,jdbcType=BIT},
@@ -70,11 +73,11 @@
       <if test="name != null" >
         name = #{name,jdbcType=VARCHAR},
       </if>
-      <if test="titlelevel != null" >
-        titleLevel = #{titlelevel,jdbcType=CHAR},
+      <if test="titleLevel != null" >
+        titleLevel = #{titleLevel,jdbcType=CHAR},
       </if>
-      <if test="createdate != null" >
-        createDate = #{createdate,jdbcType=TIMESTAMP},
+      <if test="createDate != null" >
+        createDate = #{createDate,jdbcType=TIMESTAMP},
       </if>
       <if test="enabled != null" >
         enabled = #{enabled,jdbcType=BIT},
@@ -85,8 +88,8 @@
   <update id="updateByPrimaryKey" parameterType="org.ruiscoder.myvhr.model.JobLevel" >
     update joblevel
     set name = #{name,jdbcType=VARCHAR},
-      titleLevel = #{titlelevel,jdbcType=CHAR},
-      createDate = #{createdate,jdbcType=TIMESTAMP},
+      titleLevel = #{titleLevel,jdbcType=CHAR},
+      createDate = #{createDate,jdbcType=TIMESTAMP},
       enabled = #{enabled,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>

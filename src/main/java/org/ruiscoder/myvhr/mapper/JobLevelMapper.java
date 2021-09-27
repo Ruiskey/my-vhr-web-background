@@ -2,6 +2,8 @@ package org.ruiscoder.myvhr.mapper;
 
 import org.ruiscoder.myvhr.model.JobLevel;
 
+import java.util.List;
+
 public interface JobLevelMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -14,4 +16,6 @@ public interface JobLevelMapper {
     int updateByPrimaryKeySelective(JobLevel record);
 
     int updateByPrimaryKey(JobLevel record);
+
+    List<JobLevel> getAllJobLevels();
 }

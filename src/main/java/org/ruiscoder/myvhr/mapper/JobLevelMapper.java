@@ -1,5 +1,6 @@
 package org.ruiscoder.myvhr.mapper;
 
+import org.apache.ibatis.annotations.Param;
 import org.ruiscoder.myvhr.model.JobLevel;
 
 import java.util.List;
@@ -18,4 +19,6 @@ public interface JobLevelMapper {
     int updateByPrimaryKey(JobLevel record);
 
     List<JobLevel> getAllJobLevels();
+
+    Integer deleteJobLevels(@Param("ids") Integer[] ids);
 }

@@ -35,9 +35,17 @@ public class JobLevelController {
         return RespBean.error("更新失败！");
     }
 
-    @DeleteMapping("/")
+    @DeleteMapping("/{id}")
     public RespBean deleteJobLevel(@PathVariable Integer id) {
         if (jobLevelService.deleteJobLevel(id) == 1) {
+            return RespBean.ok("删除成功！");
+        }
+        return RespBean.error("删除失败！");
+    }
+
+    @DeleteMapping("/")
+    public RespBean deleteJobLevels(Integer[] ids) {
+        if (jobLevelService.deleteJobLevels(ids) == ids.length) {
             return RespBean.ok("删除成功！");
         }
         return RespBean.error("删除失败！");

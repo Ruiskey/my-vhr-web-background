@@ -24,6 +24,12 @@
     delete from joblevel
     where id = #{id,jdbcType=INTEGER}
   </delete>
+  <delete id="deleteJobLevels">
+    delete from joblevel where id in
+    <foreach collection="ids" item="id" separator="," open="(" close=")">
+      #{id}
+    </foreach>
+  </delete>
   <insert id="insert" parameterType="org.ruiscoder.myvhr.model.JobLevel" >
     insert into joblevel (id, name, titleLevel,
       createDate, enabled)

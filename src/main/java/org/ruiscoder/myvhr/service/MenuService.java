@@ -14,6 +14,7 @@ import java.util.List;
 public class MenuService {
     @Autowired
     MenuMapper menuMapper;
+
     public List<Menu> getMenusByHrId() {
         return menuMapper.getMenusByHrId(((Hr) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId());
     }
@@ -21,5 +22,9 @@ public class MenuService {
 //    @Cacheable
     public List<Menu> getAllMenusWithRole() {
         return menuMapper.getAllMenusWithRole();
+    }
+
+    public List<Menu> getAllMenus() {
+        return menuMapper.getAllMenus();
     }
 }

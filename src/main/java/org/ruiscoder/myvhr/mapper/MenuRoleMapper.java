@@ -1,8 +1,9 @@
 package org.ruiscoder.myvhr.mapper;
 
+import org.apache.ibatis.annotations.Param;
 import org.ruiscoder.myvhr.model.Menu_Role;
 
-public interface Menu_RoleMapper {
+public interface MenuRoleMapper {
     int deleteByPrimaryKey(Integer id);
 
     int insert(Menu_Role record);
@@ -14,4 +15,8 @@ public interface Menu_RoleMapper {
     int updateByPrimaryKeySelective(Menu_Role record);
 
     int updateByPrimaryKey(Menu_Role record);
+
+    void deleteByRid(Integer rid);
+
+    Integer insertRecord(@Param("rid") Integer rid, @Param("mids") Integer[] mids);
 }

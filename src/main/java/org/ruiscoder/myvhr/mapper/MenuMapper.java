@@ -1,5 +1,6 @@
 package org.ruiscoder.myvhr.mapper;
 
+import org.apache.ibatis.annotations.Param;
 import org.ruiscoder.myvhr.model.Menu;
 
 import java.util.List;
@@ -22,4 +23,6 @@ public interface MenuMapper {
     List<Menu> getAllMenusWithRole();
 
     List<Menu> getAllMenus();
+
+    List<Integer> getMidsByRid(Integer rid);
 }

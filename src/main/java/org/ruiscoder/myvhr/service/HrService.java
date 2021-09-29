@@ -30,4 +30,8 @@ public class HrService implements UserDetailsService {
         //将当前用户的Id传过去
         return hrMapper.getAllHrs(HrUtils.getCurrentHr().getId());
     }
+
+    public Integer updateHr(Hr hr) {
+        return hrMapper.updateByPrimaryKeySelective(hr);
+    }
 }

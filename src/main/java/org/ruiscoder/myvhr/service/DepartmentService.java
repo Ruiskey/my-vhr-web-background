@@ -14,4 +14,9 @@ public class DepartmentService {
     public List<Department> getAllDepartmentsByParentId(Integer pid) {
         return departmentMapper.getAllDepartmentsByParentId(pid);
     }
+
+    public void addDep(Department dep) {
+        dep.setEnabled(true);
+        departmentMapper.addDep(dep);
+    }
 }

@@ -1,5 +1,6 @@
 package org.ruiscoder.myvhr.mapper;
 
+import org.apache.ibatis.annotations.Param;
 import org.ruiscoder.myvhr.model.Hr;
 import org.ruiscoder.myvhr.model.Role;
 
@@ -22,5 +23,5 @@ public interface HrMapper {
 
     List<Role> getHrRolesById(Integer id);
 
-    List<Hr> getAllHrs(Integer id);
+    List<Hr> getAllHrs(@Param("hrid") Integer hrid, @Param("keywords") String keywords);
 }

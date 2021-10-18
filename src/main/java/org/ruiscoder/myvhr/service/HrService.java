@@ -47,4 +47,8 @@ public class HrService implements UserDetailsService {
         // 再添加
         return hrRoleMapper.addRole(hrid, rids) == rids.length;
     }
+
+    public Integer deleteHrById(Integer id) {
+        return hrMapper.deleteByPrimaryKey(id);
+    }
 }

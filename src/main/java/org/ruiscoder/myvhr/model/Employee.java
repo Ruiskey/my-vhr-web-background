@@ -11,15 +11,15 @@ public class Employee {
 
     private Date birthday;
 
-    private String idcard;
+    private String idCard;
 
     private String wedlock;
 
-    private Integer nationid;
+    private Integer nationId;
 
-    private String nativeplace;
+    private String nativePlace;
 
-    private Integer politicid;
+    private Integer politicId;
 
     private String email;
 
@@ -27,37 +27,83 @@ public class Employee {
 
     private String address;
 
-    private Integer departmentid;
+    private Integer departmentId;
 
-    private Integer joblevelid;
+    private Integer jobLevelId;
 
-    private Integer posid;
+    private Integer posId;
 
-    private String engageform;
+    private String engageForm;
 
-    private String tiptopdegree;
+    private String tiptopDegree;
 
     private String specialty;
 
     private String school;
 
-    private Date begindate;
+    private Date beginDate;
 
-    private String workstate;
+    private String workState;
 
-    private String workid;
+    private String workID;
 
-    private Double contractterm;
+    private Double contractTerm;
 
-    private Date conversiontime;
+    private Date conversionTime;
 
-    private Date notworkdate;
+    private Date notWorkDate;
 
-    private Date begincontract;
+    private Date beginContract;
 
-    private Date endcontract;
+    private Date endContract;
 
-    private Integer workage;
+    private Integer workAge;
+
+    private Nation nation;
+    private PoliticsStatus politicsStatus;
+    private Department department;
+    private JobLevel jobLevel;
+    private Position position;
+
+    public Nation getNation() {
+        return nation;
+    }
+
+    public void setNation(Nation nation) {
+        this.nation = nation;
+    }
+
+    public PoliticsStatus getPoliticsStatus() {
+        return politicsStatus;
+    }
+
+    public void setPoliticsStatus(PoliticsStatus politicsStatus) {
+        this.politicsStatus = politicsStatus;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
+    public JobLevel getJobLevel() {
+        return jobLevel;
+    }
+
+    public void setJobLevel(JobLevel jobLevel) {
+        this.jobLevel = jobLevel;
+    }
+
+    public Position getPosition() {
+        return position;
+    }
+
+    public void setPosition(Position position) {
+        this.position = position;
+    }
 
     public Integer getId() {
         return id;
@@ -91,45 +137,7 @@ public class Employee {
         this.birthday = birthday;
     }
 
-    public String getIdcard() {
-        return idcard;
-    }
 
-    public void setIdcard(String idcard) {
-        this.idcard = idcard == null ? null : idcard.trim();
-    }
-
-    public String getWedlock() {
-        return wedlock;
-    }
-
-    public void setWedlock(String wedlock) {
-        this.wedlock = wedlock == null ? null : wedlock.trim();
-    }
-
-    public Integer getNationid() {
-        return nationid;
-    }
-
-    public void setNationid(Integer nationid) {
-        this.nationid = nationid;
-    }
-
-    public String getNativeplace() {
-        return nativeplace;
-    }
-
-    public void setNativeplace(String nativeplace) {
-        this.nativeplace = nativeplace == null ? null : nativeplace.trim();
-    }
-
-    public Integer getPoliticid() {
-        return politicid;
-    }
-
-    public void setPoliticid(Integer politicid) {
-        this.politicid = politicid;
-    }
 
     public String getEmail() {
         return email;
@@ -155,45 +163,6 @@ public class Employee {
         this.address = address == null ? null : address.trim();
     }
 
-    public Integer getDepartmentid() {
-        return departmentid;
-    }
-
-    public void setDepartmentid(Integer departmentid) {
-        this.departmentid = departmentid;
-    }
-
-    public Integer getJoblevelid() {
-        return joblevelid;
-    }
-
-    public void setJoblevelid(Integer joblevelid) {
-        this.joblevelid = joblevelid;
-    }
-
-    public Integer getPosid() {
-        return posid;
-    }
-
-    public void setPosid(Integer posid) {
-        this.posid = posid;
-    }
-
-    public String getEngageform() {
-        return engageform;
-    }
-
-    public void setEngageform(String engageform) {
-        this.engageform = engageform == null ? null : engageform.trim();
-    }
-
-    public String getTiptopdegree() {
-        return tiptopdegree;
-    }
-
-    public void setTiptopdegree(String tiptopdegree) {
-        this.tiptopdegree = tiptopdegree == null ? null : tiptopdegree.trim();
-    }
 
     public String getSpecialty() {
         return specialty;
@@ -211,75 +180,161 @@ public class Employee {
         this.school = school == null ? null : school.trim();
     }
 
-    public Date getBegindate() {
-        return begindate;
+
+
+    public String getIdCard() {
+        return idCard;
     }
 
-    public void setBegindate(Date begindate) {
-        this.begindate = begindate;
+    public void setIdCard(String idCard) {
+        this.idCard = idCard;
     }
 
-    public String getWorkstate() {
-        return workstate;
+
+    public Integer getNationId() {
+        return nationId;
     }
 
-    public void setWorkstate(String workstate) {
-        this.workstate = workstate == null ? null : workstate.trim();
+    public void setNationId(Integer nationId) {
+        this.nationId = nationId;
     }
 
-    public String getWorkid() {
-        return workid;
+    public String getNativePlace() {
+        return nativePlace;
     }
 
-    public void setWorkid(String workid) {
-        this.workid = workid == null ? null : workid.trim();
+    public void setNativePlace(String nativePlace) {
+        this.nativePlace = nativePlace;
     }
 
-    public Double getContractterm() {
-        return contractterm;
+    public Integer getPoliticId() {
+        return politicId;
     }
 
-    public void setContractterm(Double contractterm) {
-        this.contractterm = contractterm;
+    public void setPoliticId(Integer politicId) {
+        this.politicId = politicId;
     }
 
-    public Date getConversiontime() {
-        return conversiontime;
+    public Integer getDepartmentId() {
+        return departmentId;
     }
 
-    public void setConversiontime(Date conversiontime) {
-        this.conversiontime = conversiontime;
+    public void setDepartmentId(Integer departmentId) {
+        this.departmentId = departmentId;
     }
 
-    public Date getNotworkdate() {
-        return notworkdate;
+    public Integer getJobLevelId() {
+        return jobLevelId;
     }
 
-    public void setNotworkdate(Date notworkdate) {
-        this.notworkdate = notworkdate;
+    public void setJobLevelId(Integer jobLevelId) {
+        this.jobLevelId = jobLevelId;
     }
 
-    public Date getBegincontract() {
-        return begincontract;
+    public Integer getPosId() {
+        return posId;
     }
 
-    public void setBegincontract(Date begincontract) {
-        this.begincontract = begincontract;
+    public void setPosId(Integer posId) {
+        this.posId = posId;
     }
 
-    public Date getEndcontract() {
-        return endcontract;
+
+    public Date getBeginDate() {
+        return beginDate;
     }
 
-    public void setEndcontract(Date endcontract) {
-        this.endcontract = endcontract;
+    public void setBeginDate(Date beginDate) {
+        this.beginDate = beginDate;
     }
 
-    public Integer getWorkage() {
-        return workage;
+
+    public Double getContractTerm() {
+        return contractTerm;
     }
 
-    public void setWorkage(Integer workage) {
-        this.workage = workage;
+    public void setContractTerm(Double contractTerm) {
+        this.contractTerm = contractTerm;
+    }
+
+    public Date getConversionTime() {
+        return conversionTime;
+    }
+
+    public void setConversionTime(Date conversionTime) {
+        this.conversionTime = conversionTime;
+    }
+
+
+    public Date getBeginContract() {
+        return beginContract;
+    }
+
+    public void setBeginContract(Date beginContract) {
+        this.beginContract = beginContract;
+    }
+
+    public Date getEndContract() {
+        return endContract;
+    }
+
+    public void setEndContract(Date endContract) {
+        this.endContract = endContract;
+    }
+
+    public String getWedlock() {
+        return wedlock;
+    }
+
+    public void setWedlock(String wedlock) {
+        this.wedlock = wedlock;
+    }
+
+    public String getEngageForm() {
+        return engageForm;
+    }
+
+    public void setEngageForm(String engageForm) {
+        this.engageForm = engageForm;
+    }
+
+    public String getTiptopDegree() {
+        return tiptopDegree;
+    }
+
+    public void setTiptopDegree(String tiptopDegree) {
+        this.tiptopDegree = tiptopDegree;
+    }
+
+    public String getWorkState() {
+        return workState;
+    }
+
+    public void setWorkState(String workState) {
+        this.workState = workState;
+    }
+
+    public String getWorkID() {
+        return workID;
+    }
+
+    public void setWorkID(String workID) {
+        this.workID = workID;
+    }
+
+    public Date getNotWorkDate() {
+        return notWorkDate;
+    }
+
+    public void setNotWorkDate(Date notWorkDate) {
+        this.notWorkDate = notWorkDate;
+    }
+
+    public Integer getWorkAge() {
+        return workAge;
+    }
+
+    public void setWorkAge(Integer workAge) {
+        this.workAge = workAge;
     }
 }

@@ -60,7 +60,10 @@
     beginContract, endContract, workAge
   </sql>
   <select id="getTotal" resultType="java.lang.Long">
-    select count(*) from employee;
+    select count(*) from employee
+    <if test="keyword !=null and keyword!=''">
+      where name like concat('%', #{keyword}, '%')
+    </if>
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select
@@ -74,6 +77,9 @@
            d.name as dname, j.id as jid, j.name as jname, pos.id as posid, pos.name as posname
     from employee e, nation n, politicsstatus p, department d, joblevel j, position pos
     where e.nationId=n.id and e.politicId = p.id and e.departmentId = d.id and e.jobLevelId = j.id and e.posId = pos.id
+    <if test="keyword !=null and keyword!=''">
+      and e.name like concat('%', #{keyword}, '%')
+    </if>
     limit #{page}, #{size};
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >

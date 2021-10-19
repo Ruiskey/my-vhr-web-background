@@ -65,6 +65,9 @@
       where name like concat('%', #{keyword}, '%')
     </if>
   </select>
+  <select id="maxWorkID" resultType="java.lang.Integer">
+    select max(workID) from employee
+  </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select
     <include refid="Base_Column_List" />

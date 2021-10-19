@@ -11,8 +11,8 @@ import java.util.List;
 public class DepartmentService {
     @Autowired
     DepartmentMapper departmentMapper;
-    public List<Department> getAllDepartmentsByParentId(Integer pid) {
-        return departmentMapper.getAllDepartmentsByParentId(pid);
+    public List<Department> getAllDepartments() {
+        return departmentMapper.getAllDepartmentsByParentId(-1);
     }
 
     public void addDep(Department dep) {

@@ -26,6 +26,9 @@ public class EmpBasicController {
     @Autowired
     PositionService positionService;
 
+    @Autowired
+    DepartmentService departmentService;
+
     @GetMapping("/")
     public RespPageBean getEmployeeByPage(@RequestParam(defaultValue = "1") Integer page,
                                           @RequestParam(defaultValue = "10") Integer size,
@@ -60,5 +63,17 @@ public class EmpBasicController {
     public List<Position> getAllPositions() {
         return positionService.getAllPositions();
     }
+
+    @GetMapping("/maxWorkID")
+    public RespBean maxWorkID() {
+        RespBean respBean =  RespBean.build().setStatus(200).setObj(String.format("%08d", employeeService.maxWorkID() + 1));
+        return respBean;
+    }
+
+    @GetMapping("/deps")
+    public List<Department> getAllDepartment() {
+        return departmentService.getAllDepartments();
+    }
+
 
 }

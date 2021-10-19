@@ -16,7 +16,7 @@ public class DepartmentController {
     DepartmentService departmentService;
     @GetMapping("/")
     public List<Department> getAllDepartments() {
-        return departmentService.getAllDepartmentsByParentId(-1);
+        return departmentService.getAllDepartments();
     }
 
     @PostMapping("/")

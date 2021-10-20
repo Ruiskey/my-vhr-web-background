@@ -2,7 +2,9 @@ package org.ruiscoder.myvhr.controller.emp;
 
 import org.ruiscoder.myvhr.model.*;
 import org.ruiscoder.myvhr.service.*;
+import org.ruiscoder.myvhr.utils.POIUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -90,6 +92,15 @@ public class EmpBasicController {
         }
         return RespBean.error("删除失败!");
     }
+
+    @GetMapping("/export")
+    public ResponseEntity<byte[]> exportData() {
+        //查询出所有员工数据
+        List<Employee> data = (List<Employee>) employeeService.getEmployeeByPage(null, null, null).getData();
+        return POIUtils.employee2Excel(data);
+    }
+
+
 
 
 }

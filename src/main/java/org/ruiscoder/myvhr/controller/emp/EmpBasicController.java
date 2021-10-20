@@ -44,6 +44,14 @@ public class EmpBasicController {
         return RespBean.error("添加失败!");
     }
 
+    @PutMapping("/")
+    public RespBean editEmp(@RequestBody Employee employee) {
+        if (employeeService.editEmp(employee) == 1) {
+            return RespBean.ok("修改成功");
+        }
+        return RespBean.error("修改失败!");
+    }
+
     @GetMapping("/nations")
     public List<Nation> getAllNations() {
         return nationService.getAllNations();

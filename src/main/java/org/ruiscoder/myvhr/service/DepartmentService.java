@@ -19,4 +19,8 @@ public class DepartmentService {
         dep.setEnabled(true);
         departmentMapper.addDep(dep);
     }
+
+    public List<Department> getAllDepartmentsWithChildren() {
+        return departmentMapper.getAllDepartmentsWithChildren();
+    }
 }

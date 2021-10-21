@@ -5,14 +5,16 @@ import org.apache.poi.hpsf.SummaryInformation;
 import org.apache.poi.hssf.usermodel.*;
 import org.apache.poi.ss.usermodel.FillPatternType;
 import org.apache.poi.ss.usermodel.IndexedColors;
-import org.ruiscoder.myvhr.model.Employee;
+import org.ruiscoder.myvhr.model.*;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class POIUtils {
@@ -205,5 +207,151 @@ public class POIUtils {
             e.printStackTrace();
         }
         return new ResponseEntity<byte[]>(baos.toByteArray(), headers, HttpStatus.CREATED);
+    }
+
+    /**
+     * Excel解析成员工集合
+     *
+     * @param file
+     * @param allNations
+     * @param allPoliticsStatus
+     * @param allDepartments
+     * @param allPositions
+     * @param allJobLevels
+     * @return
+     */
+    public static List<Employee> excel2Employee(MultipartFile file, List<Nation> allNations,
+                                                List<PoliticsStatus> allPoliticsStatus,
+                                                List<Department> allDepartments, List<Position> allPositions,
+                                                List<JobLevel> allJobLevels) {
+        List<Employee> list = new ArrayList<>();
+        Employee employee = null;
+        try {
+            //1 创建一个workbook对象
+            HSSFWorkbook workbook = new HSSFWorkbook(file.getInputStream());
+            // 2. 获取workbook中表单的数量
+            int numberOfSheets = workbook.getNumberOfSheets();
+            for (int i = 0; i < numberOfSheets; i++) {
+                // 3获取表单
+                HSSFSheet sheet = workbook.getSheetAt(i);
+                // 4 获取表单中的行数
+                int physicalNumberOfRows = sheet.getPhysicalNumberOfRows();
+                for (int j = 0; j < physicalNumberOfRows; j++) {
+                    //5 跳过标题行
+                    if (j == 0) {
+                        continue; //跳过标题行
+                    }
+                    //6 获取行
+                    HSSFRow row = sheet.getRow(j);
+                    if (row == null) {
+                        continue; //防止中间有空行
+                    }
+                    //7. 获取列
+                    int physicalNumberOfCells = row.getPhysicalNumberOfCells();
+                    employee = new Employee();
+                    for (int k = 0; k < physicalNumberOfCells; k++) {
+                        HSSFCell cell = row.getCell(k);
+                        switch (cell.getCellType()) {
+                            case STRING:
+                                String stringCellValue = cell.getStringCellValue();
+                                switch (k) {
+                                    case 1:
+                                        employee.setName(stringCellValue);
+                                        break;
+                                    case 2:
+                                        employee.setWorkID(stringCellValue);
+                                        break;
+                                    case 3:
+                                        employee.setGender(stringCellValue);
+                                        break;
+                                    case 5:
+                                        employee.setIdCard(stringCellValue);
+                                        break;
+                                    case 6:
+                                        employee.setWedlock(stringCellValue);
+                                        break;
+                                    case 7:
+                                        int index = allNations.indexOf(new Nation(stringCellValue));
+                                        employee.setNationId(allNations.get(index).getId());
+                                        break;
+                                    case 8:
+                                        employee.setNativePlace(stringCellValue);
+                                        break;
+                                    case 9:
+                                        int indexPoliticsStatus = allPoliticsStatus.indexOf(new PoliticsStatus(stringCellValue));
+                                        employee.setPoliticId(allPoliticsStatus.get(indexPoliticsStatus).getId());
+                                        break;
+                                    case 10:
+                                        employee.setPhone(stringCellValue);
+                                        break;
+                                    case 11:
+                                        employee.setAddress(stringCellValue);
+                                        break;
+                                    case 12:
+                                        int indexDep = allDepartments.indexOf(new Department(stringCellValue));
+                                        employee.setDepartmentId(allDepartments.get(indexDep).getId());
+                                        break;
+                                    case 13:
+                                        int indexJob = allJobLevels.indexOf(new JobLevel(stringCellValue));
+                                        employee.setJobLevelId(allJobLevels.get(indexJob).getId());
+                                        break;
+                                    case 14:
+                                        int indexPos = allPositions.indexOf(new Position(stringCellValue));
+                                        employee.setPosId(allPositions.get(indexPos).getId());
+                                        break;
+                                    case 15:
+                                        employee.setEngageForm(stringCellValue);
+                                        break;
+                                    case 16:
+                                        employee.setTiptopDegree(stringCellValue);
+                                        break;
+                                    case 17:
+                                        employee.setSpecialty(stringCellValue);
+                                        break;
+                                    case 18:
+                                        employee.setSchool(stringCellValue);
+                                        break;
+                                    case 20:
+                                        employee.setWorkState(stringCellValue);
+                                        break;
+                                    case 21:
+                                        employee.setEmail(stringCellValue);
+                                        break;
+                                }
+                                break;
+                            //按时间格式
+                            default: {
+                                switch (k) {
+                                    case 4:
+                                        employee.setBirthday(cell.getDateCellValue());
+                                        break;
+                                    case 19:
+                                        employee.setBeginDate(cell.getDateCellValue());
+                                        break;
+                                    case 23:
+                                        employee.setBeginContract(cell.getDateCellValue());
+                                        break;
+                                    case 24:
+                                        employee.setEndContract(cell.getDateCellValue());
+                                        break;
+                                    case 22:
+                                        employee.setContractTerm(cell.getNumericCellValue());
+                                        break;
+                                    case 25:
+                                        employee.setConversionTime(cell.getDateCellValue());
+                                        break;
+                                }
+                            }
+                            break;
+                        }
+                    }
+                    list.add(employee);
+                }
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return list;
     }
 }

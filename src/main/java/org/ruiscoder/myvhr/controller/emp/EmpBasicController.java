@@ -6,7 +6,10 @@ import org.ruiscoder.myvhr.utils.POIUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -100,7 +103,19 @@ public class EmpBasicController {
         return POIUtils.employee2Excel(data);
     }
 
-
-
-
+    @PostMapping("/import")
+    public RespBean importData(MultipartFile file) throws IOException {
+        //先将文件存起来
+        List<Employee> list = POIUtils.excel2Employee(file, nationService.getAllNations(),
+                politicsStatusService.getAllPoliticsStatus(), departmentService.getAllDepartmentsWithChildren(),
+                positionService.getAllPositions(), jobLevelService.getAllJobLevels());
+        //打印到控制台 测试
+        /*for (Employee employee : list) {
+            System.out.println(employee);
+        }*/
+        if (list.size() == employeeService.addEmps(list)) {
+            return RespBean.ok("上传成功!");
+        }
+        return RespBean.ok("上传失败!");
+    }
 }

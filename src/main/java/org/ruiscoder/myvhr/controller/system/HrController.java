@@ -3,8 +3,8 @@ package org.ruiscoder.myvhr.controller.system;
 import org.ruiscoder.myvhr.model.Hr;
 import org.ruiscoder.myvhr.model.RespBean;
 import org.ruiscoder.myvhr.model.Role;
-import org.ruiscoder.myvhr.service.HrService;
 import org.ruiscoder.myvhr.service.RoleService;
+import org.ruiscoder.myvhr.service.HrService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
